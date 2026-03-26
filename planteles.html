@@ -1,187 +1,151 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="text/css" href="img/logcobay.png"  >
-<link rel="stylesheet" href="css/estilo.css">
-<title>Planteles-Colegio de Bachilleres del Estado de Yucatan</title>
-</head><nav class="navbar">
-<a href="plantel.html"> <img src="img/logo.png" class="logo" width="190" height="60"></a>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planteles de Yucatán - COBAY</title>
+    
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="icon" type="image/png" href="img/logcobay.png">
+</head>
+<body class="body">
 
-        <ul class="menu">
-            <li>
-                <a href="plantel.html">Nuestro plantel</a>
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo"> 
+            <img src="img/logo.png" alt="Logo COBAY">
+        </a>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html">Inicio</a></li>
+            
+            <li class="nav-item">
+                <a href="plantel.html">Nuestro plantel ▾</a>
                 <ul class="submenu">
-                    <li><a href="planteles.html">Planteles de yucatan</a></li>
+                    <li><a href="planteles.html">Planteles de Yucatán</a></li>
                 </ul>
             </li>
-
-            <li>
-                <a href="">Oferta educativa</a>
+            
+            <li class="nav-item">
+                <a href="#">Oferta educativa ▾</a>
                 <ul class="submenu">
-                    
                     <li><a href="convo.html">Convocatorias</a></li>
                     <li><a href="capa.html">Capacitaciones</a></li>
                 </ul>
             </li>
-
-            <li>
-                <a href="paraes.html">Actividades extra curriculares</a>
+            
+            <li class="nav-item"><a href="paraes.html">Act. Extra Escolares</a></li>
+            
+            <li class="nav-item">
+                <a href="revista.html">Revista digital ▾</a>
                 <ul class="submenu">
-                    
+                    <li><a href="bombas.html">Bombas Yucatecas</a></li>
+                    <li><a href="cultura.html">Cultura Maya Viva</a></li>
+                    <li><a href="bordado.html">Bordado Yucateco</a></li>
+                    <li><a href="gastronomia.html">Gastronomía Yucateca</a></li>
+                    <li><a href="hamacas.html">Hamacas y Artesanías</a></li>
+                    <li><a href="jarana.html">La Jarana Yucateca</a></li>
+                    <li><a href="trios.html">Tríos Musicales</a></li>
                 </ul>
             </li>
-
-            <li>
-                <a href="revista.html">Revista digital</a>
+            
+            <li class="nav-item">
+                <a href="#">Conócenos ▾</a>
                 <ul class="submenu">
-
-                    
-                </ul>
-            </li>
-
-            <li>
-                <a href="">Conócenos</a>
-                <ul class="submenu">
-                    <li><a href="redes.html">Contactanos</a></li>
+                    <li><a href="redes.html">Contáctanos</a></li>
                     <li><a href="ubicacion.html">Ubicación</a></li>
-                    <li><a href="mision y vision.html">Misión</a></li>
-                    <li><a href="reglamento.html">Reglamento escolar</a></li>
+                    <li><a href="mision y vision.html">Misión y Visión</a></li>
+                    <li><a href="reglamento.html">Reglamento</a></li>
                 </ul>
             </li>
         </ul>
     </nav>
 
+    <header class="hero-planteles">
+        <h1>Planteles COBAY en Yucatán</h1>
+        <p>Conoce la extensa red de planteles del Colegio de Bachilleres a tu disposición en todo el estado.</p>
+    </header>
 
-<section class="cobay-section">
+    <section class="contenedor-planteles">
+        <div class="grid-planteles">
+            
+            <div class="tarjeta-plantel destacada">
+                <div class="icono-plantel">🏫</div>
+                <h3>Santa Rosa</h3>
+                <p><strong>Municipio:</strong> Mérida</p>
+                <a href="https://www.google.com/search?q=COBAY+Santa+Rosa+Mérida+Yucatán" target="_blank" rel="noopener noreferrer" class="btn-mapa">📍 Ver en mapa</a>
+            </div>
 
-    <h2>Planteles del Colegio de Bachilleres del Estado de Yucatán</h2>
+            <div class="tarjeta-plantel">
+                <div class="icono-plantel">🏫</div>
+                <h3>Caucel</h3>
+                <p><strong>Municipio:</strong> Mérida</p>
+                <a href="https://www.google.com/search?q=COBAY+Caucel+Mérida+Yucatán" target="_blank" rel="noopener noreferrer" class="btn-mapa">📍 Ver en mapa</a>
+            </div>
 
-    <div class="tabla-contenedor">
-        <table class="tabla-cobay">
-            <thead>
-                <tr>
-                    <th>Plantel</th>
-                    <th>Municipio</th>
-                    <th>Ubicación</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Santa Rosa</td>
-                    <td>Mérida</td>
-                    <td>
-                        <a href="https://www.google.com/search?q=COBAY+Santa+Rosa+Mérida+Yucatán" target="_blank" rel="noopener noreferrer">
-                            Ver en mapa
-                        </a>
-                    </td>
-                </tr>
+            <div class="tarjeta-plantel">
+                <div class="icono-plantel">🏫</div>
+                <h3>Cholul</h3>
+                <p><strong>Municipio:</strong> Mérida</p>
+                <a href="https://www.google.com/search?q=COBAY+Cholul+Mérida+Yucatán" target="_blank" rel="noopener noreferrer" class="btn-mapa">📍 Ver en mapa</a>
+            </div>
 
-                <tr>
-                    <td>Caucel</td>
-                    <td>Mérida</td>
-                    <td>
-                        <a href="https://www.google.com/search?q=COBAY+Caucel+Mérida+Yucatán" target="_blank" rel="noopener noreferrer">
-                            Ver en mapa
-                        </a>
-                    </td>
-                </tr>
+            <div class="tarjeta-plantel">
+                <div class="icono-plantel">🏫</div>
+                <h3>Xoclán</h3>
+                <p><strong>Municipio:</strong> Mérida</p>
+                <a href="https://www.google.com/search?q=COBAY+Xoclán+Mérida+Yucatán" target="_blank" rel="noopener noreferrer" class="btn-mapa">📍 Ver en mapa</a>
+            </div>
 
-                <tr>
-                    <td>Cholul</td>
-                    <td>Mérida</td>
-                    <td>
-                        <a href="https://www.google.com/search?q=COBAY+Cholul+Mérida+Yucatán" target="_blank" rel="noopener noreferrer">
-                            Ver en mapa
-                        </a>
-                    </td>
-                </tr>
+            <div class="tarjeta-plantel">
+                <div class="icono-plantel">🏫</div>
+                <h3>San José Tzal</h3>
+                <p><strong>Municipio:</strong> Mérida</p>
+                <a href="https://www.google.com/search?q=COBAY+San+José+Tzal+Yucatán" target="_blank" rel="noopener noreferrer" class="btn-mapa">📍 Ver en mapa</a>
+            </div>
 
-                <tr>
-                    <td>Xoclán</td>
-                    <td>Mérida</td>
-                    <td>
-                        <a href="https://www.google.com/search?q=COBAY+Xoclán+Mérida+Yucatán" target="_blank" rel="noopener noreferrer">
-                            Ver en mapa
-                        </a>
-                    </td>
-                </tr>
+            <div class="tarjeta-plantel">
+                <div class="icono-plantel">🏫</div>
+                <h3>Kanasín</h3>
+                <p><strong>Municipio:</strong> Kanasín</p>
+                <a href="https://www.google.com/search?q=COBAY+Kanasín+Yucatán" target="_blank" rel="noopener noreferrer" class="btn-mapa">📍 Ver en mapa</a>
+            </div>
 
-                <tr>
-                    <td>San José Tzal</td>
-                    <td>Mérida</td>
-                    <td>
-                        <a href="https://www.google.com/search?q=COBAY+San+José+Tzal+Yucatán" target="_blank" rel="noopener noreferrer">
-                            Ver en mapa
-                        </a>
-                    </td>
-                </tr>
+            <div class="tarjeta-plantel">
+                <div class="icono-plantel">🏫</div>
+                <h3>Tizimín</h3>
+                <p><strong>Municipio:</strong> Tizimín</p>
+                <a href="https://www.google.com/search?q=COBAY+Tizimín+Yucatán" target="_blank" rel="noopener noreferrer" class="btn-mapa">📍 Ver en mapa</a>
+            </div>
 
-                <tr>
-                    <td>Kanasín</td>
-                    <td>Kanasín</td>
-                    <td>
-                        <a href="https://www.google.com/search?q=COBAY+Kanasín+Yucatán" target="_blank" rel="noopener noreferrer">
-                            Ver en mapa
-                        </a>
-                    </td>
-                </tr>
+            <div class="tarjeta-plantel">
+                <div class="icono-plantel">🏫</div>
+                <h3>Valladolid</h3>
+                <p><strong>Municipio:</strong> Valladolid</p>
+                <a href="https://www.google.com/search?q=COBAY+Valladolid+Yucatán" target="_blank" rel="noopener noreferrer" class="btn-mapa">📍 Ver en mapa</a>
+            </div>
 
-                <tr>
-                    <td>Tizimín</td>
-                    <td>Tizimín</td>
-                    <td>
-                        <a href="https://www.google.com/search?q=COBAY+Tizimín+Yucatán" target="_blank" rel="noopener noreferrer">
-                            Ver en mapa
-                        </a>
-                    </td>
-                </tr>
+            <div class="tarjeta-plantel">
+                <div class="icono-plantel">🏫</div>
+                <h3>Progreso</h3>
+                <p><strong>Municipio:</strong> Progreso</p>
+                <a href="https://www.google.com/search?q=COBAY+Progreso+Yucatán" target="_blank" rel="noopener noreferrer" class="btn-mapa">📍 Ver en mapa</a>
+            </div>
 
-                <tr>
-                    <td>Valladolid</td>
-                    <td>Valladolid</td>
-                    <td>
-                        <a href="https://www.google.com/search?q=COBAY+Valladolid+Yucatán" target="_blank" rel="noopener noreferrer">
-                            Ver en mapa
-                        </a>
-                    </td>
-                </tr>
+        </div>
+    </section>
 
-                <tr>
-                    <td>Progreso</td>
-                    <td>Progreso</td>
-                    <td>
-                        <a href="https://www.google.com/search?q=COBAY+Progreso+Yucatán" target="_blank" rel="noopener noreferrer">
-                            Ver en mapa
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="footer-cobay">
+        <footer>
+            <p>&copy; 2026 Colegio de Bachilleres del Estado de Yucatán - Plantel Santa Rosa.</p>
+        </footer>
     </div>
 
-<div class="footer-cobay">
-    <footer>
-        <p>
-            Dirección: Calle 46 S/N x 97 y 99, Colonia Santa Rosa, C.P. 97279, Mérida, Yucatán, México.<br><br>
-
-            Teléfono:
-            <a href="tel:+529999280876" target="_blank" rel="noopener noreferrer">
-                (999) 928 08 76
-            </a><br><br>
-
-            Correo electrónico:
-            <a href="mailto:santarosa@cobay.edu.mx" target="_blank" rel="noopener noreferrer">
-                santarosa@cobay.edu.mx
-            </a><br><br>
-
-            Horario de atención: Lunes a viernes de 7:00 a.m. a 3:00 p.m.<br><br>
-
-            Nivel educativo: Educación Media Superior (Bachillerato General).
-        </p>
-    </footer>
-</div>
-</section>
+    <script src="js/main.js"></script>
 </body>
 </html>

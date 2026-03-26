@@ -3,72 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="text/css" href="imagenes/logcobay.png"  >
-    <title>Convocatoria-Colegio de Bachilleres del Estado de Yucatan</title>
+    <title>Convocatorias - COBAY Santa Rosa</title>
+    
     <link rel="stylesheet" href="css/estilo.css">
+    <link rel="icon" type="image/png" href="img/logcobay.png">
 </head>
-<body style="background-color:#fcfcfc;">
+<body class="body">
+<nav class="navbar">
+        <a href="index.html" class="nav-logo"> 
+            <img src="img/logo.png" alt="Logo COBAY">
+        </a>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
 
-    <nav class="navbar">
-        <img src="imagenes/logo.png" class="logo" width="190" height="60">
-
-        <ul class="menu">
-            <li>
-                <a href="plantel.html">Nuestro plantel</a>
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html">Inicio</a></li>
+            
+            <li class="nav-item">
+                <a href="plantel.html">Nuestro plantel ▾</a>
                 <ul class="submenu">
-                    <li><a href="planteles.html">Planteles de yucatan</a></li>
+                    <li><a href="planteles.html">Planteles de Yucatán</a></li>
                 </ul>
             </li>
-
-            <li>
-                <a href="">Ofertas educativa</a>
+            
+            <li class="nav-item">
+                <a href="#">Oferta educativa ▾</a>
                 <ul class="submenu">
-                
                     <li><a href="convo.html">Convocatorias</a></li>
                     <li><a href="capa.html">Capacitaciones</a></li>
                 </ul>
             </li>
-
-            <li>
-                <a href="paraes.html">Actividades extra curriculares</a>
+            
+            <li class="nav-item"><a href="paraes.html">Act. Extra Escolares</a></li>
+            
+            <li class="nav-item">
+                <a href="revista.html">Revista digital ▾</a>
                 <ul class="submenu">
-                   
+                    <li><a href="bombas.html">Bombas Yucatecas</a></li>
+                    <li><a href="cultura.html">Cultura Maya Viva</a></li>
+                    <li><a href="bordado.html">Bordado Yucateco</a></li>
+                    <li><a href="gastronomia.html">Gastronomía Yucateca</a></li>
+                    <li><a href="hamacas.html">Hamacas y Artesanías</a></li>
+                    <li><a href="jarana.html">La Jarana Yucateca</a></li>
+                    <li><a href="trios.html">Tríos Musicales</a></li>
                 </ul>
             </li>
-
-            <li>
-                <a href="revista.html">Revista digital</a>
+            
+            <li class="nav-item">
+                <a href="#">Conócenos ▾</a>
                 <ul class="submenu">
-
-                    
-                </ul>
-            </li>
-
-            <li>
-                <a href="">Conócenos</a>
-                <ul class="submenu">
-                    <li><a href="redes.html">Contactanos</a></li>
+                    <li><a href="redes.html">Contáctanos</a></li>
                     <li><a href="ubicacion.html">Ubicación</a></li>
-                    <li><a href="mision y vision.html">Misión</a></li>
+                    <li><a href="mision y vision.html">Misión y Visión</a></li>
                     <li><a href="reglamento.html">Reglamento</a></li>
                 </ul>
             </li>
         </ul>
     </nav>
+    <header class="hero-convo">
+        <h1>Convocatorias y Avisos</h1>
+        <p>Mantente al día con los procesos de admisión, becas y avisos importantes de nuestra institución.</p>
+    </header>
 
-<div class="convocatoria-container">
-  <!-- Cambia 'tu-imagen.jpg' por la ruta de tu imagen -->
-  <img src="imagenes/convocatoria.jpg" alt="Convocatoria">
-  
-  <!-- Cambia 'archivo.pdf' por tu archivo de convocatoria -->
-  <a target="_blank" class="download-btn" href="convocatorias/260325_ConvocatoriaAdmisionEMS.pdf" download>Descargar Convocatoria</a>
-  <br><br>
+    <section class="tablero-convocatorias">
+        
+        <div class="tarjeta-convo destacada">
+            <span class="etiqueta-nuevo">¡Nueva!</span>
+            <div class="convo-imagen">
+                <img src="img/convocatoria.jpg" alt="Convocatoria de Admisión">
+            </div>
+            <div class="convo-info">
+                <h2>Proceso de Admisión EMS</h2>
+                <p class="convo-fecha">Publicado: Marzo 2026</p>
+                <p class="convo-desc">Conoce las bases, requisitos y fechas importantes para ingresar al Colegio de Bachilleres del Estado de Yucatán, Plantel Santa Rosa.</p>
+                
+                <a href="260325_ConvocatoriaAdmisionEMS.pdf" target="_blank" download class="btn-descarga">
+                    📥 Descargar PDF
+                </a>
+            </div>
+        </div>
 
-  <img src="imagenes/baner.jpg.jpeg" alt="Más">
-   <a target="_blank" class="download-btn" href="redes/redes.html">Explora nuestras redes sociales en caso de no encontrar más convocatorias</a>
-</div>
+        <div class="tarjeta-convo">
+            <div class="convo-imagen">
+                <img src="img/baner.jpg.jpeg" alt="Banner Redes Sociales">
+            </div>
+            <div class="convo-info">
+                <h2>¿No encuentras lo que buscas?</h2>
+                <p class="convo-fecha">Avisos diarios</p>
+                <p class="convo-desc">Explora nuestras redes sociales oficiales. Ahí publicamos recordatorios, eventos relámpago y actualizaciones constantes para nuestra comunidad estudiantil.</p>
+                
+                <a href="redes.html" class="btn-redes">
+                    🌐 Visitar Redes Sociales
+                </a>
+            </div>
+        </div>
 
+    </section>
 
-
+    <div class="footer-cobay">
+        <footer>
+            <p>&copy; 2026 Colegio de Bachilleres del Estado de Yucatán - Plantel Santa Rosa.</p>
+        </footer>
+    </div>
+<script src="java.js"></script>
 </body>
 </html>

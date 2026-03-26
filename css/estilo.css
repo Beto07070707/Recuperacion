@@ -1,602 +1,1296 @@
-{
+/* =========================================
+   1. BASE Y RESETEO (Empezando de 0)
+========================================= */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Century Gothic', Arial, sans-serif;
 }
 
-.body {
-    background: #f4f4f4;
-    font-family: Arial, sans-serif;
-    min-height: 100vh; 
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
 }
 
+/* =========================================
+   2. NUEVA BARRA DE NAVEGACIÓN RESPONSIVA
+========================================= */
 .navbar {
-    background-color: #970d48;
-    padding: 10px 30px;
+    background-color: #970E48;
+    padding: 10px 20px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-between; 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.menu {
-    list-style: none;
+.nav-logo img {
+    height: 50px;
+    width: auto;
+}
+
+.nav-menu {
     display: flex;
-    gap: 15px;
+    list-style: none;
+    align-items: center;
 }
 
-.menu li {
+.nav-item {
     position: relative;
+    margin-left: 5px;
 }
 
-.menu a {
+.nav-item a {
+    color: white;
     text-decoration: none;
-    color: #ffffff;
     padding: 10px 15px;
     display: block;
-    transition: background 0.3s ease;
+    font-weight: bold;
+    transition: background 0.3s;
+    border-radius: 5px;
 }
 
-.menu a:hover {
+.nav-item a:hover {
     background-color: #B91838;
 }
 
+/* Submenús */
 .submenu {
-    display: none; 
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #333;
+    background-color: #ffffff;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+}
+
+.submenu li {
     list-style: none;
-    min-width: 180px;
-    z-index: 1000;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
-    padding: 0px;
-    margin: 0px;
 }
 
-.submenu li a {
+.submenu a {
+    color: #333;
     padding: 12px 15px;
-    font-size: 14px;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid #eee;
+    border-radius: 0;
 }
 
-.menu li:hover .submenu {
+.submenu a:hover {
+    background-color: #f8f4e6;
+    color: #970E48;
+}
+
+/* Mostrar submenú al pasar el mouse (solo en PC) */
+@media (min-width: 769px) {
+    .nav-item:hover .submenu {
+        display: block;
+    }
+}
+
+/* Botón Hamburguesa (Oculto en PC) */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
     display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+/* --- ADAPTACIÓN PARA CELULARES --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Mostramos la hamburguesa */
+    }
+    
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        flex-direction: column;
+        background-color: #970E48;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-menu.activo {
+        left: 0; /* Aparece el menú */
+    }
+
+    .nav-item {
+        margin: 0;
+        width: 100%;
+    }
+
+    .submenu {
+        position: relative;
+        box-shadow: none;
+        background-color: #7a0b3a;
+    }
+    
+    .submenu a {
+        color: white;
+        border-bottom: 1px solid #970E48;
+    }
+    
+    /* Mostrar submenús en móvil de forma predeterminada para que puedan hacer clic */
+    .nav-item:hover .submenu {
+        display: block;
+    }
+}
+
+/* =========================================
+   3. ESTILOS DE CAPACITACIONES (capa.html)
+========================================= */
+.hero-capa { background: linear-gradient(rgba(151, 14, 72, 0.85), rgba(151, 14, 72, 0.95)), url('../img/pasillo.jpeg') center/cover; color: white; text-align: center; padding: 80px 20px; margin-bottom: 40px; }
+.hero-capa h1 { font-size: 3em; margin-bottom: 15px; }
+.hero-capa p { font-size: 1.2em; max-width: 800px; margin: auto; font-style: italic; color: #f4e6c8; }
+.controles-filtro { text-align: center; margin-bottom: 40px; }
+.btn-filtro { background-color: white; border: 2px solid #970E48; color: #970E48; padding: 10px 20px; font-weight: bold; border-radius: 30px; cursor: pointer; margin: 5px; transition: all 0.3s ease; }
+.btn-filtro.activo, .btn-filtro:hover { background-color: #970E48; color: white; transform: translateY(-3px); }
+.grid-moderno { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto 60px auto; padding: 0 20px; }
+.tarjeta-moderna { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.08); transition: transform 0.3s; border-top: 5px solid #BC955C; }
+.tarjeta-moderna:hover { transform: translateY(-10px); }
+.img-tarjeta { width: 100%; height: 200px; object-fit: cover; }
+.contenido-tarjeta { padding: 25px; }
+.contenido-tarjeta h3 { color: #970E48; margin-bottom: 15px; text-align: center; }
+.texto-oculto { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #ccc; }
+.btn-leermas { background-color: #BC955C; color: white; border: none; padding: 10px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 15px; }
+.esconder { display: none !important; }
+.animar-entrada { animation: fadeIn 0.6s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* =========================================
+   4. ESTILOS DE CONVOCATORIAS (convo.html)
+========================================= */
+.hero-convo { background: linear-gradient(rgba(0,0,0,0.7), rgba(151,14,72,0.8)), url('../img/cobay.jpeg') center/cover; color: white; text-align: center; padding: 70px 20px; margin-bottom: 50px; }
+.tablero-convocatorias { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1000px; margin: 0 auto 60px auto; padding: 0 20px; }
+.tarjeta-convo { background: white; border-radius: 12px; width: 400px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.3s ease; position: relative; display: flex; flex-direction: column; }
+.tarjeta-convo:hover { transform: translateY(-8px); }
+.tarjeta-convo.destacada { border: 2px solid #BC955C; }
+.etiqueta-nuevo { position: absolute; top: 15px; right: -35px; background-color: #d32f2f; color: white; padding: 5px 40px; font-weight: bold; font-size: 14px; transform: rotate(45deg); animation: pulsar 2s infinite; z-index: 10; }
+@keyframes pulsar { 0% { transform: rotate(45deg) scale(1); } 50% { transform: rotate(45deg) scale(1.05); background-color: #ff3b3b; } 100% { transform: rotate(45deg) scale(1); } }
+.convo-imagen img { width: 100%; height: 250px; object-fit: cover; border-bottom: 4px solid #970E48; }
+.convo-info { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+.convo-info h2 { color: #970E48; margin-bottom: 5px; }
+.convo-fecha { font-size: 0.9em; color: #777; margin-bottom: 15px; font-style: italic; }
+.convo-desc { color: #444; margin-bottom: 25px; text-align: justify; flex-grow: 1; }
+.btn-descarga, .btn-redes { display: block; text-align: center; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; color: white; }
+.btn-descarga { background-color: #970E48; }
+.btn-redes { background-color: #BC955C; }
+
+/* =========================================
+   5. ESTILOS DE MISIÓN Y VISIÓN
+========================================= */
+.hero-mision { background: linear-gradient(rgba(151, 14, 72, 0.85), rgba(0, 0, 0, 0.8)), url('../img/salon equipado.jpeg') center/cover; color: white; text-align: center; padding: 80px 20px; margin-bottom: 60px; }
+.hero-mision h1 { font-size: 3em; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+.hero-mision p { font-size: 1.2em; max-width: 800px; margin: auto; font-style: italic; color: #f4e6c8; }
+.contenedor-mision-vision { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1000px; margin: 0 auto 50px auto; padding: 0 20px; }
+.tarjeta-identidad { background: white; border-radius: 15px; width: 450px; padding: 40px 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); text-align: center; transition: transform 0.4s ease, box-shadow 0.4s ease; border-top: 5px solid #BC955C; position: relative; overflow: hidden; }
+.tarjeta-identidad:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(151, 14, 72, 0.2); }
+.tarjeta-identidad::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(248, 244, 230, 0.5), transparent); opacity: 0; transition: opacity 0.4s ease; z-index: 0; }
+.tarjeta-identidad:hover::before { opacity: 1; }
+.icono-identidad { font-size: 50px; margin-bottom: 20px; position: relative; z-index: 1; }
+.tarjeta-identidad h2 { color: #970E48; font-size: 2em; margin-bottom: 20px; position: relative; z-index: 1; }
+.tarjeta-identidad p { color: #444; line-height: 1.8; font-size: 1.1em; text-align: justify; position: relative; z-index: 1; }
+
+/* =========================================
+   6. ESTILOS DE ACTIVIDADES EXTRA ESCOLARES
+========================================= */
+.hero-paraes { background: linear-gradient(rgba(151, 14, 72, 0.8), rgba(188, 149, 92, 0.8)), url('../img/expla.jpeg') center/cover; color: white; text-align: center; padding: 80px 20px 100px 20px; }
+.hero-paraes h1 { font-size: 3em; margin-bottom: 15px; }
+.hero-paraes p { font-size: 1.2em; max-width: 800px; margin: auto; font-style: italic; color: #f4e6c8; }
+.tarjeta-paraes { background: white; border-radius: 15px; padding: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); transition: transform 0.3s ease; border-bottom: 5px solid #BC955C; position: relative; z-index: 10; }
+.tarjeta-paraes:hover { transform: translateY(-10px); }
+.icono-paraes { font-size: 45px; text-align: center; margin-bottom: 15px; }
+.tarjeta-paraes h3 { color: #970E48; text-align: center; font-size: 1.6em; margin-bottom: 15px; }
+.tarjeta-paraes p { color: #555; text-align: justify; margin-bottom: 20px; }
+.tarjeta-paraes ul { list-style-type: none; padding-left: 0; }
+.tarjeta-paraes li { background-color: #f8f4e6; margin-bottom: 8px; padding: 10px 15px; border-radius: 8px; color: #970E48; font-weight: bold; border-left: 4px solid #BC955C; }
+.seccion-torneos { background-color: #ffffff; padding: 60px 20px; text-align: center; }
+.seccion-torneos h2 { color: #970E48; font-size: 2.5em; margin-bottom: 15px; }
+.seccion-torneos p { color: #444; max-width: 700px; margin: 0 auto 40px auto; font-size: 1.1em; }
+.torneos-contenedor { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 900px; margin: auto; }
+.torneo-item { background: linear-gradient(135deg, #970E48, #B91838); color: white; width: 350px; padding: 30px; border-radius: 15px; box-shadow: 0 8px 15px rgba(151, 14, 72, 0.3); }
+.torneo-item h4 { font-size: 1.8em; color: #f4e6c8; margin-bottom: 10px; border-bottom: 2px solid rgba(255,255,255,0.2); padding-bottom: 10px; }
+.torneo-item p { color: white; font-size: 1em; margin-bottom: 0; }
+
+/* =========================================
+   7. FOOTER GLOBAL
+========================================= */
+.footer-cobay { background-color: #BC955C; color: white; text-align: center; padding: 20px; margin-top: auto; }
+
+/* =========================================
+   6. ESTILOS DE MISIÓN Y VISIÓN
+========================================= */
+.hero-mision {
+    background: linear-gradient(rgba(151, 14, 72, 0.85), rgba(0, 0, 0, 0.8)), url('../img/salon equipado.jpeg') center/cover;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    margin-bottom: 60px;
+}
+
+.hero-mision h1 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-mision p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: auto;
+    font-style: italic;
+    color: #f4e6c8;
+}
+
+.contenedor-mision-vision {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto 50px auto;
+    padding: 0 20px;
+}
+
+.tarjeta-identidad {
+    background: white;
+    border-radius: 15px;
+    width: 450px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border-top: 5px solid #BC955C;
+    position: relative;
+    overflow: hidden;
+}
+
+.tarjeta-identidad:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(151, 14, 72, 0.2);
+}
+
+.tarjeta-identidad::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(248, 244, 230, 0.5), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
+
+.tarjeta-identidad:hover::before {
+    opacity: 1;
+}
+
+.icono-identidad {
+    font-size: 50px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.tarjeta-identidad h2 {
+    color: #970E48;
+    font-size: 2em;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.tarjeta-identidad p {
+    color: #444;
+    line-height: 1.8;
+    font-size: 1.1em;
+    text-align: justify;
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================================
+   7. ESTILOS DE ACTIVIDADES EXTRA ESCOLARES
+========================================= */
+.hero-paraes {
+    background: linear-gradient(rgba(151, 14, 72, 0.8), rgba(188, 149, 92, 0.8)), url('../img/expla.jpeg') center/cover;
+    color: white;
+    text-align: center;
+    padding: 80px 20px 100px 20px; /* Más padding abajo para encimar las tarjetas */
+}
+
+.hero-paraes h1 {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.hero-paraes p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: auto;
+    font-style: italic;
+    color: #f4e6c8;
+}
+
+/* Tarjetas de Disciplinas */
+.tarjeta-paraes {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    border-bottom: 5px solid #BC955C;
+    position: relative;
+    z-index: 10;
+}
+
+.tarjeta-paraes:hover {
+    transform: translateY(-10px);
+}
+
+.icono-paraes {
+    font-size: 45px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.tarjeta-paraes h3 {
+    color: #970E48;
+    text-align: center;
+    font-size: 1.6em;
+    margin-bottom: 15px;
+}
+
+.tarjeta-paraes p {
+    color: #555;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+.tarjeta-paraes ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.tarjeta-paraes li {
+    background-color: #f8f4e6;
+    margin-bottom: 8px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    color: #970E48;
+    font-weight: bold;
+    border-left: 4px solid #BC955C;
+}
+
+/* Sección de Torneos */
+.seccion-torneos {
+    background-color: #ffffff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.seccion-torneos h2 {
+    color: #970E48;
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.seccion-torneos p {
+    color: #444;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    font-size: 1.1em;
+}
+
+.torneos-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.torneo-item {
+    background: linear-gradient(135deg, #970E48, #B91838);
+    color: white;
+    width: 350px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(151, 14, 72, 0.3);
+}
+
+.torneo-item h4 {
+    font-size: 1.8em;
+    color: #f4e6c8;
+    margin-bottom: 10px;
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    padding-bottom: 10px;
+}
+
+.torneo-item p {
+    color: white;
+    font-size: 1em;
+    margin-bottom: 0;
+}
+
+/* =========================================
+   8. ESTILOS DE NUESTRO PLANTEL (plantel.html)
+========================================= */
+.banner-plantel {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('../img/cobay.jpeg') center/cover;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.texto-banner-plantel h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+}
+
+.texto-banner-plantel p {
+    font-size: 1.5em;
+    font-style: italic;
+    color: #f4e6c8;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+.bienvenida-plantel {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.info-bienvenida {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+    background: white;
+    border-left: 5px solid #970E48;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-radius: 0 15px 15px 0;
+}
+
+.info-bienvenida h2 {
+    color: #970E48;
+    font-size: 2.2em;
+    margin-bottom: 20px;
+}
+
+.info-bienvenida p {
+    color: #444;
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* Slider de 4 fotos (adaptado) */
+.slider-plantel-contenedor {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
 }
 
 .slider2 {
-    width: 600px;       
-    height: 300px;     
-    margin: 40px auto;   
-    overflow: hidden;    
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    margin: 0 auto 20px auto;
+    overflow: hidden;
     border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border: 3px solid #BC955C;
 }
 
 .slides2 {
     display: flex;
-    width: 800%;         
-    animation: deslizar 20s linear infinite;
+    width: 800%; /* Espacio para las 8 fotos (4 originales + 4 clones) */
+    animation: deslizar-plantel 20s linear infinite;
 }
 
 .slides2 a {
-    width: 600px;       
+    width: 12.5%; /* 100% dividido entre 8 fotos = 12.5% */
     flex-shrink: 0;
 }
 
 .slides2 img {
-    width: 150%;        
-    height: 300px;
-    object-fit: cover;  
-}
-
-@keyframes deslizar {
-    0%   { transform: translateX(0); }
-    10%  { transform: translateX(0); }
-    12%  { transform: translateX(-12.5%); } 
-    22%  { transform: translateX(-12.5%); }
-    24%  { transform: translateX(-25%); }   
-    34%  { transform: translateX(-25%); }
-    36%  { transform: translateX(-37.5%); } 
-    46%  { transform: translateX(-37.5%); }
-    48%  { transform: translateX(-50%); }   
-    58%  { transform: translateX(-50%); }
-    60%  { transform: translateX(-62.5%); }
-    70%  { transform: translateX(-62.5%); }
-    72%  { transform: translateX(-75%); }   
-    82%  { transform: translateX(-75%); }
-    84%  { transform: translateX(-87.5%); }
-    94%  { transform: translateX(-87.5%); }
-    100% { transform: translateX(0); }      
-}
- body, h1, p {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
-.mi-banner {
-    width: 100%;           /* Ocupa todo el ancho de la página */
-    height: 300px;         /* Define qué tan alto quieres el banner */
-    object-fit: cover;     /* CLAVE: Ajusta la imagen sin que se vea estirada */
-    display: block;        /* Quita espacios en blanco extra debajo */
-}
-.convocatoria-container {
-  background: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  max-width: 600px;
-  width: 100%;
-  text-align: center;
-  padding: 20px;
-  margin: 0 auto;
-}
-
-.convocatoria-container img {
-  max-width: 100%;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  transition: transform 0.3s ease;
-}
-
-.convocatoria-container img:hover {
-  transform: scale(1.02);
-}
-
-.download-btn {
-  display: inline-block;
-  padding: 12px 25px;
-  background-color: #970E48;
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 8px;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.download-btn:hover {
-  background-color: #b30f5e;
-  transform: translateY(-3px);
-}
-.convocatoria-container{
-    height: 400px;
-    width: 300px;
-}
-.main-content{
-text-align: center;
-font-family:'century gothic';
-color: #970E48;
-
-
-}
-.texto{
-text-align: center;
-color: #000000;
-font-family: century gothic;
-
-}
-img {
-    border-radius: 5%;
-}
-/* Contenedor principal que organiza las tarjetas */
-.contenedor-areas {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  display: flex;
-  padding: 40px 20px;
-}
-
-/* Cada tarjeta individual de un área */
-.tarjeta-area {
-  border-radius: 15px;
-  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-  padding: 25px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Efecto al pasar el cursor sobre la tarjeta */
-.tarjeta-area:hover {
-  transform: translateY(-10px);
-}
-
-/* Título de cada área */
-.titulo-area {
-  color: #970E48;
-  font-size: 1.5em;
-  margin-bottom: 15px;
-  font-weight:bold;
-}
-.titulot-area {
- 
-  color: #000000;
-  font-size: 1.5em;
-  margin-bottom: 15px;
-  font-weight:bold;
-}
-
-/* Descripción de cada área */
-.descripcion-area {
-  color: #333333;
-  line-height: 1.5;
-  text-align: justify;
-}
-
-/* Primera letra destacada para más estilo */
-.descripcion-area:first-letter {
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #970E48;
-}
-.contenedor-areas {
-  width: 90%;
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-  justify-content: center;
-}
-.tarjeta-area {
-  width: 400px;
-  background: white;
-}
-.fooder{
-    background-color: #BC955C;
-}
-.cobay-section{
-    background: linear-gradient(to bottom, #ffffff, #BC955C);
-    padding: 60px 20px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.cobay-section h2{
-    text-align: center;
-    color: #661111;
-    margin-bottom: 40px;
-    font-size: 30px;
-}
-
-.tabla-contenedor{
-    max-width: 1000px;
-    margin: auto;
-    overflow-x: auto;
-}
-
-.tabla-cobay{
     width: 100%;
-    border-collapse: collapse;
-    background-color: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    height: 300px;
+    object-fit: cover;
 }
 
-.tabla-cobay thead{
-    background-color: #661111;
-    color: white;
+@keyframes deslizar-plantel {
+    0%   { transform: translateX(0); }
+    12%  { transform: translateX(-12.5%); }
+    25%  { transform: translateX(-25%); }
+    37%  { transform: translateX(-37.5%); }
+    50%  { transform: translateX(-50%); }
+    62%  { transform: translateX(-62.5%); }
+    75%  { transform: translateX(-75%); }
+    87%  { transform: translateX(-87.5%); }
+    100% { transform: translateX(-100%); } /* Va al final y reinicia suavemente */
 }
 
-.tabla-cobay th, .tabla-cobay td{
-    padding: 15px;
-    text-align: center;
-}
-
-.tabla-cobay th{
-    font-size: 16px;
-}
-
-.tabla-cobay tbody tr{
-    border-bottom: 1px solid #eee;
-    transition: 0.3s ease;
-}
-
-.tabla-cobay tbody tr:hover{
-    background-color: #f8f4e6;
-    transform: scale(1.01);
-}
-
-.tabla-cobay a{
-    text-decoration: none;
-    background-color: #BC955C;
-    color: white;
-    padding: 8px 14px;
-    border-radius: 20px;
-    transition: 0.3s;
-    font-size: 14px;
-}
-
-.tabla-cobay a:hover{
-    background-color: #661111;
-}
-
-
-/*hola*/
-
-.santa-rosa{
-    background: linear-gradient(rgba(102,17,17,0.85), rgba(102,17,17,0.85)),
-                linear-gradient(to bottom, #BC955C, #ffffff);
-    padding: 100px 20px;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-}
-
-.santa-contenido{
-    max-width: 800px;
-    margin: auto;
-}
-
-.santa-rosa h1{
-    font-size: 42px;
-    margin-bottom: 10px;
-}
-
-.santa-rosa h3{
-    font-weight: normal;
-    margin-bottom: 30px;
-    color: #f4e6c8;
-}
-
-.santa-rosa p{
-    font-size: 18px;
-    line-height: 1.7;
-    margin-bottom: 20px;
-}
-
-.btn-santa{
+.btn-galeria-plantel {
     display: inline-block;
-    margin-top: 20px;
-    padding: 12px 28px;
-    background-color: #BC955C;
+    background-color: #970E48;
     color: white;
-    text-decoration: none;
+    padding: 12px 25px;
     border-radius: 30px;
+    text-decoration: none;
     font-weight: bold;
-    transition: 0.3s ease;
+    font-size: 1.1em;
+    transition: transform 0.3s, background 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
-.btn-santa:hover{
-    background-color: white;
-    color: #661111;
+.btn-galeria-plantel:hover {
+    background-color: #BC955C;
     transform: scale(1.05);
 }
 
-.footer-cobay{
-    background-color: #BC955C; /* Amarillo institucional */
-    padding: 40px 20px;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.footer-cobay footer{
-    max-width: 900px;
-    margin: auto;
-}
-
-.footer-cobay p{
-    color: #ffffff;
-    font-size: 16px;
-    line-height: 1.7;
-}
-
-.footer-cobay a{
-    color: #661111; /* Vino COBAY */
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s ease;
-
-}
-
-.footer-cobay a:hover{
-    color: white;
-    text-decoration: underline;
-}
-
-.derechos_autor {
-    text-align: center; /* centra el contenido */
-    margin: 30px 0;
-    font-family: Arial, sans-serif;
-    color: #333;
-}
-
-.derechos_autor ul {
-    list-style: none; /* quita los puntos */
-    padding: 0;
-    margin: 0;
-}
-
-.derechos_autor ul ul {
-    margin-top: 10px; /* espacio entre el título y los autores */
-}
-
-.derechos_autor li {
-    margin: 5px 0; /* espacio entre cada autor */
-}
-
-
-/* ===== DISEÑO EXCLUSIVO PARA DEPORTES ===== */
-
-.deportes-container {
+/* Sección de Créditos */
+.creditos-equipo {
     max-width: 800px;
-    margin: 50px auto;
+    margin: 0 auto 60px auto;
+    background: white;
     padding: 30px;
-    background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
 }
 
-.deportes-container h1 {
-    color: #000000;
-    border-bottom: 3px solid #004a99;
-    padding-bottom: 10px;
+.creditos-equipo h3 {
+    color: #970E48;
     margin-bottom: 20px;
+    font-size: 1.5em;
 }
 
-.deportes-container h2 {
-    color: #d32f2f;
-    margin-top: 25px;
-}
-
-.deportes-container .intro {
-    font-style: italic;
-    color: #555;
-    background: #eef;
-    padding: 15px;
-    border-left: 5px solid #004a99;
-    margin-bottom: 20px;
-}
-
-.deportes-container ul {
+.lista-creditos {
     list-style: none;
-    padding-left: 0;
+    padding: 0;
 }
 
-.deportes-container li {
-    margin-bottom: 10px;
-    padding-left: 20px;
-    position: relative;
-}
-
-.deportes-container li::before {
-    content: "•";
-    color: #004a99;
-    position: absolute;
-    left: 0;
-}
-
-.deportes-container .category {
-    font-weight: bold;
-    color: #004a99;
-}
-
-.deportes-container .highlight {
-    background-color: #fff3e0;
-    padding: 3px 6px;
-    border-radius: 4px;
-}
-/* === REDES SOCIALES PROFESIONAL === */
-.redes-section {
-    text-align: center;
-    padding: 60px 20px;
-    background: #ffffff;
-}
-
-.redes-section h1 {
-    color: #970E48;
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-
-.redes-section .subtitulo {
+.lista-creditos li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #ddd;
     color: #555;
-    margin-bottom: 30px;
 }
 
-.redes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 30px;
-    width: 90%;
-    max-width: 900px;
-    margin: auto;
-}
-
-.red-social {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.lista-creditos a {
+    color: #BC955C;
+    font-weight: bold;
     text-decoration: none;
-    color: #000;
-    transition: transform 0.3s ease;
 }
 
-.red-social img {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 10px;
-}
-
-.red-social span {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.red-social:hover {
-    transform: scale(1.1);
-}
-
-.facebook img { filter: none; }
-.instagram img { filter: none; }
-.youtube img { filter: none; }
-/* ===== SECCIÓN UBICACIÓN ===== */
-
-.ubicacion {
+/* =========================================
+   9. ESTILOS DE LA GALERÍA (galeria.html)
+========================================= */
+.hero-galeria {
+    background: linear-gradient(rgba(151, 14, 72, 0.8), rgba(0, 0, 0, 0.7)), url('../img/lab.jpeg') center/cover;
+    color: white;
     text-align: center;
     padding: 60px 20px;
-    background-color: #f8f8f8;
-}
-
-.ubicacion h1 {
-    font-size: 36px;
-    color: #970E48; /* Color institucional */
     margin-bottom: 40px;
 }
 
-.mapa {
-    width: 90%;
+.hero-galeria h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.hero-galeria p {
+    font-size: 1.2em;
+    font-style: italic;
+    color: #f4e6c8;
+}
+
+.contenedor-galeria {
     max-width: 1200px;
-    margin: auto;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-.mapa iframe {
-    width: 100%;
-    height: 600px; /* MAPA GRANDE */
-    border: 0;
-}
-/* ===== GALERÍA ===== */
-.galeria {
-    padding: 60px 20px;
-    text-align: center;
-    background-color: #f4f4f9;
-}
-
-.galeria h1 {
-    color: #970E48;
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-
-.galeria .subtitulo {
-    color: #555;
-    margin-bottom: 40px;
-    font-size: 18px;
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
 }
 
 .galeria-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* Crea columnas responsivas automáticamente */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    max-width: 1200px;
+}
+
+.img-miniatura {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.img-miniatura:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(151, 14, 72, 0.3);
+    border: 3px solid #BC955C;
+}
+
+/* --- ESTILOS DEL LIGHTBOX (Caja de luz) --- */
+.lightbox {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 2000; /* Siempre encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-contenido {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    border: 3px solid #BC955C;
+}
+
+#caption-lightbox {
+    margin-top: 15px;
+    color: white;
+    font-size: 1.5em;
+    font-style: italic;
+}
+
+.cerrar-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.cerrar-lightbox:hover {
+    color: #BC955C;
+}
+
+/* =========================================
+   10. ESTILOS DE PLANTELES DE YUCATÁN (planteles.html)
+========================================= */
+.hero-planteles {
+    background: linear-gradient(rgba(151, 14, 72, 0.8), rgba(0, 0, 0, 0.7)), url('../img/cobay.jpeg') center/cover;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    margin-bottom: 50px;
+}
+
+.hero-planteles h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.hero-planteles p {
+    font-size: 1.2em;
+    color: #f4e6c8;
+    font-style: italic;
+    max-width: 600px;
     margin: auto;
 }
 
-.galeria-grid img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 15px;
+.contenedor-planteles {
+    max-width: 1100px;
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
+}
+
+.grid-planteles {
+    display: grid;
+    /* Crea las columnas automáticamente según el tamaño de pantalla */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.tarjeta-plantel {
+    background: white;
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
+    border-bottom: 4px solid #BC955C;
 }
 
-.galeria-grid img:hover {
+.tarjeta-plantel:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(151, 14, 72, 0.2);
+}
+
+/* Destacamos el Plantel Santa Rosa */
+.tarjeta-plantel.destacada {
+    border: 2px solid #970E48;
+    background-color: #fffafb;
+    box-shadow: 0 8px 15px rgba(151, 14, 72, 0.15);
+}
+
+.icono-plantel {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.tarjeta-plantel h3 {
+    color: #970E48;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.tarjeta-plantel p {
+    color: #555;
+    margin-bottom: 25px;
+    font-size: 1.1em;
+}
+
+.btn-mapa {
+    display: inline-block;
+    background-color: #BC955C;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-mapa:hover {
+    background-color: #970E48;
     transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-/* ===== ESTILOS PARA EL BOTÓN DESPLEGABLE DEL INDEX ===== */
+/* =========================================
+   11. ESTILOS DE CONTACTO Y REDES (redes.html)
+========================================= */
+.hero-redes {
+    background: linear-gradient(rgba(151, 14, 72, 0.8), rgba(0, 0, 0, 0.7)), url('../img/cafe.jpeg') center/cover;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero-redes h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.hero-redes p {
+    font-size: 1.2em;
+    color: #f4e6c8;
+    max-width: 600px;
+    margin: auto;
+    font-style: italic;
+}
+
+/* Sección Redes Sociales */
+.seccion-redes {
+    background-color: #f4f4f4;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.seccion-redes h2 {
+    color: #970E48;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.redes-contenedor {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.tarjeta-red {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-red img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 3px solid white;
+    object-fit: cover;
+}
+
+.tarjeta-red:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+}
+
+.facebook-bg { background: linear-gradient(135deg, #1877F2, #0b50aa); }
+.instagram-bg { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.tiktok-bg { background: linear-gradient(135deg, #000000, #333333); }
+
+/* Sección Información de Contacto */
+.seccion-contacto {
+    background-color: #ffffff;
+    padding: 60px 20px;
+    text-align: center;
+    border-top: 2px dashed #ccc;
+}
+
+.seccion-contacto h2 {
+    color: #BC955C;
+    margin-bottom: 40px;
+    font-size: 2em;
+}
+
+.contacto-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.tarjeta-contacto {
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    width: 300px;
+    padding: 30px 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.tarjeta-contacto:hover {
+    transform: translateY(-5px);
+    border-color: #BC955C;
+}
+
+.icono-contacto {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.tarjeta-contacto h3 {
+    color: #970E48;
+    margin-bottom: 15px;
+}
+
+.tarjeta-contacto p {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.tarjeta-contacto a {
+    color: #970E48;
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 1px dotted #970E48;
+}
+
+.tarjeta-contacto a:hover {
+    color: #BC955C;
+    border-bottom-color: #BC955C;
+}
+
+/* =========================================
+   12. ESTILOS DE REGLAMENTO (reglamento.html)
+========================================= */
+.hero-reglamento {
+    background: linear-gradient(rgba(151, 14, 72, 0.8), rgba(0, 0, 0, 0.7)), url('../img/salon equipado.jpeg') center/cover;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    margin-bottom: 40px;
+}
+
+.hero-reglamento h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.hero-reglamento p {
+    font-size: 1.2em;
+    color: #f4e6c8;
+    max-width: 600px;
+    margin: auto;
+    font-style: italic;
+}
+
+/* Resumen de Reglas en Tarjetas */
+.resumen-reglas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto 50px auto;
+    padding: 0 20px;
+}
+
+.tarjeta-regla {
+    background: white;
+    width: 300px;
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border-top: 4px solid #970E48;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta-regla:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(151, 14, 72, 0.2);
+}
+
+.icono-regla {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.tarjeta-regla h3 {
+    color: #BC955C;
+    margin-bottom: 15px;
+}
+
+.tarjeta-regla p {
+    color: #555;
+    text-align: justify;
+}
+
+/* Visor de PDF */
+.contenedor-pdf-seccion {
+    background-color: #fcfcfc;
+    padding: 40px 20px 60px 20px;
+    text-align: center;
+    border-top: 2px dashed #ddd;
+}
+
+.contenedor-pdf-seccion h2 {
+    color: #970E48;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.contenedor-pdf-seccion p {
+    color: #444;
+    margin-bottom: 30px;
+}
+
+.pdf-wrapper {
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 3px solid #BC955C;
+}
+
+.pdf-wrapper iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+    display: block; /* Elimina el pequeño espacio blanco debajo del iframe */
+}
+
+.btn-descarga-pdf {
+    display: inline-block;
+    background-color: #970E48;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-descarga-pdf:hover {
+    background-color: #BC955C;
+    transform: scale(1.05);
+}
+
+/* =========================================
+   13. ESTILOS DE UBICACIÓN (ubicacion.html)
+========================================= */
+.hero-ubicacion {
+    background: linear-gradient(rgba(151, 14, 72, 0.8), rgba(0, 0, 0, 0.7)), url('../img/pasillo2.jpeg') center/cover;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    margin-bottom: 50px;
+}
+
+.hero-ubicacion h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.hero-ubicacion p {
+    font-size: 1.2em;
+    color: #f4e6c8;
+    font-style: italic;
+}
+
+.seccion-ubicacion {
+    max-width: 1200px;
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
+}
+
+.contenedor-ubicacion {
+    display: flex;
+    flex-wrap: wrap;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+    border-top: 5px solid #BC955C;
+}
+
+.info-ubicacion {
+    flex: 1;
+    min-width: 300px;
+    padding: 40px;
+    background-color: #fcfcfc;
+}
+
+.info-ubicacion h2 {
+    color: #970E48;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.info-ubicacion p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.detalle-direccion {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 4px solid #970E48;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.detalle-direccion p {
+    margin-bottom: 0;
+    font-size: 1.05em;
+    color: #333;
+}
+
+.mapa-ubicacion {
+    flex: 1;
+    min-width: 300px;
+    min-height: 400px; /* Asegura que el mapa se vea bien en celulares */
+}
+
+.mapa-ubicacion iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* =========================================
+   14. ESTILOS DE LA REVISTA (revista.html)
+========================================= */
+.hero-revista {
+    background: linear-gradient(rgba(151, 14, 72, 0.85), rgba(188, 149, 92, 0.85)), url('../img/baner.jpg.jpeg') center/cover;
+    color: white;
+    text-align: center;
+    padding: 70px 20px;
+    margin-bottom: 50px;
+}
+
+.hero-revista h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.hero-revista p {
+    font-size: 1.2em;
+    color: #f8f4e6;
+    max-width: 700px;
+    margin: auto;
+}
+
+.contenedor-revista {
+    max-width: 1200px;
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
+}
+
+.grid-revista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.tarjeta-revista {
+    background: white;
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    border-top: 5px solid #BC955C;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjeta-revista:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(151, 14, 72, 0.2);
+    border-top-color: #970E48;
+}
+
+.icono-revista {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+}
+
+.tarjeta-revista h3 {
+    color: #970E48;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+.tarjeta-revista p {
+    color: #555;
+    flex-grow: 1; /* Empuja el botón hacia abajo */
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.btn-pdf {
+    display: inline-block;
+    background-color: #970E48;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-pdf:hover {
+    background-color: #BC955C;
+    transform: scale(1.05);
+}
+
+/* =========================================
+   15. ESTILOS DE LA PÁGINA DE INICIO (index.html)
+========================================= */
+.santa-rosa {
+    background: linear-gradient(rgba(151, 14, 72, 0.85), rgba(0, 0, 0, 0.7)), url('../img/cobay.jpeg') center/cover;
+    color: white;
+    text-align: center;
+    padding: 120px 20px;
+}
+
+.santa-contenido h1 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.santa-contenido h3 {
+    font-size: 1.8em;
+    color: #BC955C;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+.santa-contenido p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    line-height: 1.6;
+}
+
+/* Botón principal del inicio */
+.btn-santa {
+    background-color: #BC955C;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: background 0.3s, transform 0.2s;
+    position: relative;
+    overflow: hidden; /* Para que el efecto ripple no se salga */
+}
+
+.btn-santa:hover {
+    background-color: #970E48;
+    transform: scale(1.05);
+}
+
+/* Menú desplegable del botón dorado */
 .dropdown-custom {
     position: relative;
     display: inline-block;
@@ -613,7 +1307,7 @@ img {
     overflow: hidden;
     text-align: left;
     left: 50%;
-    transform: translateX(-50%); /* Centra el menú bajo el botón */
+    transform: translateX(-50%);
     margin-top: 5px;
 }
 
@@ -632,17 +1326,11 @@ img {
     color: #970E48;
 }
 
-/* Mostrar el menú cuando el mouse pasa por encima del contenedor */
 .dropdown-custom:hover .dropdown-content {
     display: block;
 }
-/* ===== EFECTO RIPPLE PARA EL BOTÓN (JAVASCRIPT) ===== */
-.btn-santa {
-    position: relative;
-    overflow: hidden; /* Esto evita que la "onda" se salga del botón */
-}
 
-/* El circulito que se expandirá */
+/* Animación JS del Botón (Ripple) */
 .btn-santa .onda {
     position: absolute;
     background: rgba(255, 255, 255, 0.6);
@@ -653,14 +1341,6 @@ img {
 }
 
 @keyframes animarOnda {
-    0% {
-        width: 0px;
-        height: 0px;
-        opacity: 0.8;
-    }
-    100% {
-        width: 400px;
-        height: 400px;
-        opacity: 0;
-    }
+    0% { width: 0px; height: 0px; opacity: 0.8; }
+    100% { width: 400px; height: 400px; opacity: 0; }
 }

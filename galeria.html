@@ -3,31 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galería - Colegio de Bachilleres</title>
+    <title>Galería de Instalaciones - COBAY Santa Rosa</title>
+    
     <link rel="stylesheet" href="css/estilo.css">
-    <link rel="icon" href="imagenes/logcobay.png">
+    <link rel="icon" type="image/png" href="img/logcobay.png">
 </head>
-<body>
+<body class="body">
 
-    <!-- GALERÍA DE FOTOS -->
-    <section class="galeria">
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo"> 
+            <img src="img/logo.png" alt="Logo COBAY">
+        </a>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html">Inicio</a></li>
+            
+            <li class="nav-item">
+                <a href="plantel.html">Nuestro plantel ▾</a>
+                <ul class="submenu">
+                    <li><a href="planteles.html">Planteles de Yucatán</a></li>
+                </ul>
+            </li>
+            
+            <li class="nav-item">
+                <a href="#">Oferta educativa ▾</a>
+                <ul class="submenu">
+                    <li><a href="convo.html">Convocatorias</a></li>
+                    <li><a href="capa.html">Capacitaciones</a></li>
+                </ul>
+            </li>
+            
+            <li class="nav-item"><a href="paraes.html">Act. Extra Escolares</a></li>
+            
+            <li class="nav-item">
+                <a href="revista.html">Revista digital ▾</a>
+                <ul class="submenu">
+                    <li><a href="bombas.html">Bombas Yucatecas</a></li>
+                    <li><a href="cultura.html">Cultura Maya Viva</a></li>
+                    <li><a href="bordado.html">Bordado Yucateco</a></li>
+                    <li><a href="gastronomia.html">Gastronomía Yucateca</a></li>
+                    <li><a href="hamacas.html">Hamacas y Artesanías</a></li>
+                    <li><a href="jarana.html">La Jarana Yucateca</a></li>
+                    <li><a href="trios.html">Tríos Musicales</a></li>
+                </ul>
+            </li>
+            
+            <li class="nav-item">
+                <a href="#">Conócenos ▾</a>
+                <ul class="submenu">
+                    <li><a href="redes.html">Contáctanos</a></li>
+                    <li><a href="ubicacion.html">Ubicación</a></li>
+                    <li><a href="mision y vision.html">Misión y Visión</a></li>
+                    <li><a href="reglamento.html">Reglamento</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <header class="hero-galeria">
         <h1>📸 Nuestra Galería</h1>
-        <p class="subtitulo">Aquí podrás ver las fotos de actividades, eventos y momentos especiales del COBAY.</p>
+        <p>Conoce nuestras instalaciones, espacios académicos y recreativos. Haz clic en cualquier imagen para verla en grande.</p>
+    </header>
 
+    <section class="contenedor-galeria">
         <div class="galeria-grid">
-            <img src="imagenes/expla.jpeg" alt="Foto 1">
-            <img src="imagenes/cafe.jpeg" alt="Foto 2">
-            <img src="imagenes/cafeteria.jpeg" alt="Foto 3">
-            <img src="imagenes/img1.jpeg" alt="Foto 4">
-            <img src="imagenes/salon equipado.jpeg" alt="Foto 5">
-            <img src="imagenes/saloncomputo.jpeg" alt="Foto 6">
-            <img src="imagenes/pasillo3.jpeg" alt="Foto 7">
-            <img src="imagenes/lab.jpeg" alt="Foto 8">
-            <img src="imagenes/img1.jpeg" alt="Foto 9">
-            <img src="imagenes/imagen2.jpg.jpeg" alt="Foto 10">
-            <img src="imagenes/imagen6.jpg.jpeg" alt="Foto 11">
+            <img src="img/expla.jpeg" alt="Explanada" class="img-miniatura" onclick="abrirLightbox(this)">
+            <img src="img/cafe.jpeg" alt="Cafetería" class="img-miniatura" onclick="abrirLightbox(this)">
+            <img src="img/cafeteria.jpeg" alt="Área de comida" class="img-miniatura" onclick="abrirLightbox(this)">
+            <img src="img/img1.jpeg" alt="Actividad" class="img-miniatura" onclick="abrirLightbox(this)">
+            <img src="img/salon equipado.jpeg" alt="Salón Equipado" class="img-miniatura" onclick="abrirLightbox(this)">
+            <img src="img/saloncomputo.jpeg" alt="Centro de Cómputo" class="img-miniatura" onclick="abrirLightbox(this)">
+            <img src="img/pasillo3.jpeg" alt="Pasillos" class="img-miniatura" onclick="abrirLightbox(this)">
+            <img src="img/lab.jpeg" alt="Laboratorio" class="img-miniatura" onclick="abrirLightbox(this)">
+            <img src="img/imagen2.jpg.jpeg" alt="Instalaciones 2" class="img-miniatura" onclick="abrirLightbox(this)">
+            <img src="img/imagen6.jpg.jpeg" alt="Instalaciones 6" class="img-miniatura" onclick="abrirLightbox(this)">
         </div>
     </section>
 
+    <div id="miLightbox" class="lightbox" onclick="cerrarLightbox()">
+        <span class="cerrar-lightbox">&times;</span>
+        <img class="lightbox-contenido" id="img-ampliada">
+        <div id="caption-lightbox"></div>
+    </div>
+
+    <div class="footer-cobay">
+        <footer>
+            <p>&copy; 2026 Colegio de Bachilleres del Estado de Yucatán - Plantel Santa Rosa.</p>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Funciones para el efecto Lightbox de la Galería
+        function abrirLightbox(imgElement) {
+            document.getElementById('miLightbox').style.display = "flex";
+            document.getElementById('img-ampliada').src = imgElement.src;
+            document.getElementById('caption-lightbox').innerHTML = imgElement.alt;
+            
+            // Animación suave de entrada
+            setTimeout(() => {
+                document.getElementById('miLightbox').style.opacity = "1";
+            }, 10);
+        }
+
+        function cerrarLightbox() {
+            document.getElementById('miLightbox').style.opacity = "0";
+            
+            // Esperar a que termine la animación para ocultarlo
+            setTimeout(() => {
+                document.getElementById('miLightbox').style.display = "none";
+            }, 300);
+        }
+    </script>
 </body>
 </html>

@@ -1,72 +1,136 @@
 <!DOCTYPE html>
-<html>
 <html lang="es">
-    <link rel="stylesheet" href="css/estilo.css">
-    <link rel="icon" type="text/css" href="img/logcobay.png"  >
 <head>
-<title>Revista digital-Colegio de Bachilleres del Estado de Yucatan</title>
-</head> 
-<body style="background-color:white"><nav class="navbar">
-     
-     <a href="index.html"> <img src="img/logo.png" class="logo" width="190" height="60"></a>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revista Digital - COBAY Santa Rosa</title>
+    
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="icon" type="image/png" href="img/logcobay.png">
+</head>
+<body class="body">
 
-        <ul class="menu">
-            <li>
-                <a href="plantel.html">Nuestro plantel</a>
-                <ul class="submenu">
-                    <li><a href="planteles.html">Planteles de yucatan</a></li>
-                </ul>
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo"> 
+            <img src="img/logo.png" alt="Logo COBAY">
+        </a>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </div>
+
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html">Inicio</a></li>
+            <li class="nav-item">
+                <a href="plantel.html">Nuestro plantel ▾</a>
+                <ul class="submenu"><li><a href="planteles.html">Planteles de Yucatán</a></li></ul>
             </li>
-
-            <li>
-                <a href="">Ofertas educativa</a>
+            <li class="nav-item">
+                <a href="#">Oferta educativa ▾</a>
                 <ul class="submenu">
-                    
                     <li><a href="convo.html">Convocatorias</a></li>
                     <li><a href="capa.html">Capacitaciones</a></li>
                 </ul>
             </li>
-
-            <li>
-                <a href="paraes.html">Actividades extra curriculares</a>
+            <li class="nav-item"><a href="paraes.html">Act. Extra Escolares</a></li>
+            <li class="nav-item">
+                <a href="revista.html">Revista digital ▾</a>
                 <ul class="submenu">
-                   
+                    <li><a href="pdf/01.pdf" target="_blank">Bombas Yucatecas</a></li>
+                    <li><a href="pdf/02.pdf" target="_blank">Cultura Maya Viva</a></li>
+                    <li><a href="pdf/03.pdf" target="_blank">Bordado Yucateco</a></li>
+                    <li><a href="pdf/04.pdf" target="_blank">Gastronomía Yucateca</a></li>
+                    <li><a href="pdf/05.pdf" target="_blank">Hamacas y Artesanías</a></li>
+                    <li><a href="pdf/06.pdf" target="_blank">La Jarana Yucateca</a></li>
+                    <li><a href="pdf/07.pdf" target="_blank">Tríos Musicales</a></li>
+                    <li><a href="pdf/08.pdf" target="_blank">Trova Yucateca</a></li>
                 </ul>
             </li>
-
-            <li>
-                <a href="revista.html">Revista digital</a>
+            <li class="nav-item">
+                <a href="#">Conócenos ▾</a>
                 <ul class="submenu">
-                    
-                </ul>
-            </li>
-
-            <li>
-                <a href="">Conócenos</a>
-                <ul class="submenu">
-                    <li><a href="redes.html">Contactanos</a></li>
+                    <li><a href="redes.html">Contáctanos</a></li>
                     <li><a href="ubicacion.html">Ubicación</a></li>
-                    <li><a href="mision y vision.html">Misión</a></li>
-                    <li><a href="reglamento.html">Reglamento escolar</a></li>
+                    <li><a href="mision y vision.html">Misión y Visión</a></li>
+                    <li><a href="reglamento.html">Reglamento</a></li>
                 </ul>
             </li>
         </ul>
     </nav>
 
+    <header class="hero-revista">
+        <h1>Revista Digital: Herencia Yucateca</h1>
+        <p>Explora la riqueza de nuestra cultura, tradiciones y costumbres a través de nuestras 8 ediciones especiales.</p>
+    </header>
 
+    <section class="contenedor-revista">
+        <div class="grid-revista">
+            
+            <div class="tarjeta-revista">
+                <div class="icono-revista">💬</div>
+                <h3>Bombas Yucatecas</h3>
+                <p>Humor que brota del folklore. Cuartetas con rima que reflejan la picardía y el ingenio de nuestro pueblo.</p>
+                <a href="pdf/01.pdf" target="_blank" class="btn-pdf">📄 Leer Edición</a>
+            </div>
 
-<div class="pdf">
-    <iframe src="img/REVISTA PLANTEL SANTA ROSA.pdf"
-            width="100%"
-            height="800px"
-            style="border: none;">
-    </iframe>
-</div>
+            <div class="tarjeta-revista">
+                <div class="icono-revista">🏛️</div>
+                <h3>Cultura Maya Viva</h3>
+                <p>Más que historia, presente activo. Conoce el legado vivo en la lengua, la milpa y nuestras tradiciones.</p>
+                <a href="pdf/02.pdf" target="_blank" class="btn-pdf">📄 Leer Edición</a>
+            </div>
 
+            <div class="tarjeta-revista">
+                <div class="icono-revista">🌺</div>
+                <h3>Bordado Yucateco</h3>
+                <p>Identidad que se hila con flores. El arte ancestral detrás del hipil y el elegante terno yucateco.</p>
+                <a href="pdf/03.pdf" target="_blank" class="btn-pdf">📄 Leer Edición</a>
+            </div>
 
+            <div class="tarjeta-revista">
+                <div class="icono-revista">🍲</div>
+                <h3>Gastronomía Yucateca</h3>
+                <p>Sabores ancestrales que cuentan historias. Desde la cochinita pibil hasta la sopa de lima.</p>
+                <a href="pdf/04.pdf" target="_blank" class="btn-pdf">📄 Leer Edición</a>
+            </div>
 
+            <div class="tarjeta-revista">
+                <div class="icono-revista">🧶</div>
+                <h3>Hamacas y Artesanías</h3>
+                <p>Tejiendo tradición y economía. El abrazo artesanal de hilos de algodón y la joyería de filigrana.</p>
+                <a href="pdf/05.pdf" target="_blank" class="btn-pdf">📄 Leer Edición</a>
+            </div>
 
+            <div class="tarjeta-revista">
+                <div class="icono-revista">💃🏽</div>
+                <h3>La Jarana Yucateca</h3>
+                <p>Ritmo que une generaciones. Una vibrante danza mestiza al compás de los timbales y el tunkul.</p>
+                <a href="pdf/06.pdf" target="_blank" class="btn-pdf">📄 Leer Edición</a>
+            </div>
 
+            <div class="tarjeta-revista">
+                <div class="icono-revista">🎸</div>
+                <h3>Tríos Musicales</h3>
+                <p>Voces y guitarras que encantan. El legado del romanticismo profundo y la musicalidad del sureste.</p>
+                <a href="pdf/07.pdf" target="_blank" class="btn-pdf">📄 Leer Edición</a>
+            </div>
 
+            <div class="tarjeta-revista">
+                <div class="icono-revista">🎼</div>
+                <h3>Trova Yucateca</h3>
+                <p>Música que habla al corazón. Melodías poéticas con influencias mayas, españolas y cubanas.</p>
+                <a href="pdf/08.pdf" target="_blank" class="btn-pdf">📄 Leer Edición</a>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="footer-cobay">
+        <footer>
+            <p>&copy; 2026 Colegio de Bachilleres del Estado de Yucatán - Plantel Santa Rosa.</p>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

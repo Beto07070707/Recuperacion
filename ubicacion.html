@@ -3,68 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ubicación-Colegio de Bachilleres del Estado de Yucatan</title>
-
-    <link rel="stylesheet" type="text/css" href="css/estilo.css">
-     <link rel="icon" type="text/css" href="img/logcobay.png"  >
-    <link rel="icon" href="img/logcobay.png">
+    <title>Ubicación - COBAY Santa Rosa</title>
+    
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="icon" type="image/png" href="img/logcobay.png">
 </head>
+<body class="body">
 
-<body>
     <nav class="navbar">
-        <a href="ubicacion.html"> <img src="img/logo.png" class="logo" width="190" height="60"></a>
-            <img src="img/logo.png" class="logo" width="190" height="60">
+        <a href="index.html" class="nav-logo"> 
+            <img src="img/logo.png" alt="Logo COBAY">
         </a>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
 
-        <ul class="menu">
-            <li>
-                <a href="plantel.html">Nuestro plantel</a>
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html">Inicio</a></li>
+            
+            <li class="nav-item">
+                <a href="plantel.html">Nuestro plantel ▾</a>
                 <ul class="submenu">
                     <li><a href="planteles.html">Planteles de Yucatán</a></li>
                 </ul>
             </li>
-
-            <li>
-                <a href="#">Oferta educativa</a>
+            
+            <li class="nav-item">
+                <a href="#">Oferta educativa ▾</a>
                 <ul class="submenu">
                     <li><a href="convo.html">Convocatorias</a></li>
                     <li><a href="capa.html">Capacitaciones</a></li>
                 </ul>
             </li>
-
-            <li>
-                <a href="paraes.html">Actividades extra curriculares</a>
+            
+            <li class="nav-item"><a href="paraes.html">Act. Extra Escolares</a></li>
+            
+            <li class="nav-item">
+                <a href="revista.html">Revista digital ▾</a>
                 <ul class="submenu">
-                   
+                    <li><a href="bombas.html">Bombas Yucatecas</a></li>
+                    <li><a href="cultura.html">Cultura Maya Viva</a></li>
+                    <li><a href="bordado.html">Bordado Yucateco</a></li>
+                    <li><a href="gastronomia.html">Gastronomía Yucateca</a></li>
+                    <li><a href="hamacas.html">Hamacas y Artesanías</a></li>
+                    <li><a href="jarana.html">La Jarana Yucateca</a></li>
+                    <li><a href="trios.html">Tríos Musicales</a></li>
                 </ul>
             </li>
-
-            <li>
-                <a href="#">Conócenos</a>
+            
+            <li class="nav-item">
+                <a href="#">Conócenos ▾</a>
                 <ul class="submenu">
                     <li><a href="redes.html">Contáctanos</a></li>
                     <li><a href="ubicacion.html">Ubicación</a></li>
-                    <li><a href="mision y vision.html">Misión</a></li>
-                    <li><a href="reglamento.html">Reglamento escolar</a></li>
+                    <li><a href="mision y vision.html">Misión y Visión</a></li>
+                    <li><a href="reglamento.html">Reglamento</a></li>
                 </ul>
             </li>
         </ul>
     </nav>
 
-    <!-- SECCIÓN UBICACIÓN -->
-    <section class="ubicacion">
-        <h1> Nuestra Ubicación</h1>
+    <header class="hero-ubicacion">
+        <h1>Nuestra Ubicación</h1>
+        <p>Visítanos. Estamos ubicados en una zona accesible al sur de la ciudad de Mérida.</p>
+    </header>
 
-        <div class="mapa">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3726.3021617108684!2d-89.61536042601145!3d20.94037738068691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f56719a46a049dd%3A0x49599c3ef46113ce!2sCOBAY%20plantel%20Santa%20Rosa!5e0!3m2!1ses-419!2smx!4v1772406941801!5m2!1ses-419!2smx"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+    <section class="seccion-ubicacion">
+        <div class="contenedor-ubicacion">
+            
+            <div class="info-ubicacion">
+                <h2>¿Cómo llegar?</h2>
+                <p>El Plantel Santa Rosa se encuentra estratégicamente ubicado para facilitar el acceso a nuestros estudiantes. Puedes llegar fácilmente en transporte público o en vehículo particular.</p>
+                
+                <div class="detalle-direccion">
+                    <p>📍 <strong>Dirección Oficial:</strong><br> Calle 46 S/N x 97 y 99, Colonia Santa Rosa, C.P. 97279, Mérida, Yucatán, México.</p>
+                    <hr style="margin: 15px 0; border: 0; border-top: 1px dashed #ccc;">
+                    <p>🚌 <strong>Transporte Público:</strong><br> Las rutas de camiones y combis "Santa Rosa" o "Circuito Colonias" te dejan a muy pocas cuadras del plantel.</p>
+                    <hr style="margin: 15px 0; border: 0; border-top: 1px dashed #ccc;">
+                    <p>🕒 <strong>Horario de Acceso:</strong><br> Las puertas se abren de Lunes a Viernes de 7:00 a.m. a 3:00 p.m. para asuntos escolares y administrativos.</p>
+                </div>
+            </div>
+
+            <div class="mapa-ubicacion">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3726.8528994511593!2d-89.6234035!3d20.9182396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f56722d3b5b6379%3A0xf64f33b1e7f60742!2sColegio%20de%20Bachilleres%20del%20Estado%20de%20Yucat%C3%A1n%20Plantel%20Santa%20Rosa!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
         </div>
     </section>
 
+    <div class="footer-cobay">
+        <footer>
+            <p>&copy; 2026 Colegio de Bachilleres del Estado de Yucatán - Plantel Santa Rosa.</p>
+        </footer>
+    </div>
 
+    <script src="js/main.js"></script>
 </body>
 </html>
